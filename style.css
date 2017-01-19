@@ -1,0 +1,32 @@
+.sign-in {
+    font-family: "Kanit", sans-serif;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 25%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.alert-box {
+    position: relative;
+    top: 50px;
+}
+        
+.dev {
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    color: #778899;
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+}
+
+.rule {
+    font-family: "Kanit", sans-serif;
+    position: absolute;
+    width: 80%;
+    margin-left: 7.5%;
+    margin-top: 10%;
+    opacity: 0.85;
+}
