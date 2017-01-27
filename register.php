@@ -1,4 +1,6 @@
 <?
+    include('.script/def.php');
+
     $user = $_REQUEST['user'];
     $pass = $_REQUEST['pass'];
     $pchk = $_REQUEST['pchk'];
@@ -10,8 +12,7 @@
         header('Location: sign_up.php?status=1');
     }
     else {
-        $con = mysql_connect("localhost", "root", "");
-        mysql_select_db("squash") or die("Error! " . mysql_error());
+        connect();
 
         $res = "INSERT INTO `account`(`user`, `pass`) VALUES ('$user', '$pass')";
         mysql_query($res);
@@ -19,6 +20,6 @@
 
         if($con != NULL) {
             header('Location: index.php?status=1');
-        }   
+        }
     }
 ?>

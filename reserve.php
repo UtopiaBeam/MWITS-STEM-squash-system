@@ -1,4 +1,6 @@
 <?
+    include('.script/def.php');
+
     session_start();
     $room = $_REQUEST['room'];
     $str = strtotime($_REQUEST['str']);
@@ -11,8 +13,7 @@
         header('Location: booking.php?status=2');
     }
     else { 
-        $con = mysql_connect("localhost", "root", "");
-        mysql_select_db("squash") or die("Error! " . mysql_error());
+        connect();
         
         $login_user = $_SESSION['user'];
         

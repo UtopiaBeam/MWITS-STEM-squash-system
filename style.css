@@ -1,6 +1,7 @@
-.sign-in {
+.sign-in{
     font-family: "Kanit", sans-serif;
     position: fixed;
+    opacity: 0.90;
     height: 100%;
     width: 100%;
     top: 25%;
@@ -10,7 +11,12 @@
 
 .alert-box {
     position: relative;
-    top: 50px;
+    margin-top: 50px;
+}
+
+.row {
+    position: relative;
+    max-height: 75px;
 }
         
 .dev {
@@ -29,4 +35,9 @@
     margin-left: 7.5%;
     margin-top: 10%;
     opacity: 0.85;
+}
+
+.announce {
+    max-height: 330px;
+    overflow-y: scroll;
 }

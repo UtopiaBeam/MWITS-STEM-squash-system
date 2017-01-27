@@ -1,6 +1,7 @@
 <?
     session_start();
     include('check_date.php');
+    include('.script/def.php');
 ?>
 <html>
 <head>
@@ -38,53 +39,88 @@
             </div>
         </div>
     </nav>
-    
+<?
+    connect();
+?>
     <div class="col-md-6">
         <div class="panel panel-primary rule">
             <div class="panel-heading"><font size="5">ประกาศล่าสุด</font></div>
-            <div class="panel-body">
+            <div class="panel-body announce">
             <?
-                $con = mysql_connect("localhost", "root", "");
-                mysql_select_db("squash") or die("Error! " . mysql_error());
-                mysql_query("SET NAMES UTF8");
-
-                $res = "SELECT * FROM `announce` WHERE 1";
+                $res = "SELECT * FROM `announce`";
                 $con = mysql_query($res);
                 $row = mysql_fetch_row($con);
 
                 if(mysql_num_rows($con) == 0) {
             ?>
-                    <div style="font-style: italic; color: gray;">ไม่มีประกาศ</div>
+                    <div style="font-style: italic; color: gray;">ไม่มีประกาศในสัปดาห์นี้</div>
             <?
                 } else {
-                    echo $row[0];
+                    $con = mysql_query($res);
+                    while($row = mysql_fetch_row($con)) {
+                        if($row[1] - time() <= strtotime("1 week")) {
+            ?>
+                            <div class="well">
+                            <?
+                                echo "(" .date('d/m/Y', $row[1]). ") " .$row[0];
+                            ?>
+                            </div>
+            <?
+                        }
+                    }
                 }
-                mysql_close();
             ?>
             </div>
         </div>
     </div>
     <div class="col-md-6">
+    <?
+        if(isset($_REQUEST['status'])) {
+    ?>
+            <div class="row">
+            <?
+                if($_REQUEST['status'] == 0) {
+            ?>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <div class="alert alert-success alert-dismissable alert-box" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Cancellation completed!
+                        </div>
+                    </div>
+            <?
+                }
+            ?>
+            </div>
+    <?
+        }
+    ?>
         <div class="panel panel-danger rule">
             <div class="panel-heading"><font size="5">แจ้งเตือน</font></div>
             <div class="panel-body">
-            <?
-                $con = mysql_connect("localhost", "root", "");
-                mysql_select_db("squash") or die("Error! " . mysql_error());
-                mysql_query("SET NAMES UTF8");
-
-                $res = "SELECT * FROM `announce` WHERE 1";
+            <?        
+                $usr = $_SESSION['user'];
+                $res = "SELECT * FROM `booking` WHERE `user` = '$usr'";
                 $con = mysql_query($res);
-                $row = mysql_fetch_row($con);
 
                 if(mysql_num_rows($con) == 0) {
             ?>
                     <div style="font-style: italic; color: gray;">ไม่มีการแจ้งเตือน</div>
             <?
                 } else {
-                    echo $row[0];
+                    while($row = mysql_fetch_row($con)) {
+            ?>
+                        <font size="4">
+                    <? echo "การจองของคุณครั้งต่อไป<br>ห้องที่ " .$row[1]. " วันที่ " .date("d F Y", $row[2]). " เวลา " .date("H:i", $row[2]). " - " .date("H:i", $row[3]). " น.";
+                    ?>
+                        </font>
+                        <div></div><br>
+                        <div class="text-right">
+                            <a href="cancel.php" type="button" class="btn btn-danger">Cancel</a>
+                        </div>
+            <?
+                    }
                 }
-                mysql_close();
             ?>
             </div>
         </div>

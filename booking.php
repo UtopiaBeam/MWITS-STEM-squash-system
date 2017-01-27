@@ -116,7 +116,7 @@
         <div class="panel panel-success rule">
             <div class="panel-heading"><font size="5">จองห้องสควอช</font></div>
             <div class="panel-body">
-                <form class="form-horizontal" action="book.php" method="POST">
+                <form class="form-horizontal" action="reserve.php" method="POST">
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><font size="3">ห้องที่</font></label>
                         <div class="col-sm-1"></div>
