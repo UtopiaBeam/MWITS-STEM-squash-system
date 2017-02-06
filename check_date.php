@@ -1,5 +1,5 @@
 <?
-    include('.script/def.php');
+    include('script/def.php');
     connect();
 
     $date_res = "SELECT * FROM `time_date`";

@@ -1,5 +1,5 @@
 <?
-    include('.script/def.php');
+    include('script/def.php');
 
     session_start();
     $room = $_REQUEST['room'];

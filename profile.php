@@ -1,7 +1,6 @@
 <?
     session_start();
     include('check_date.php');
-    include('.script/def.php');
 ?>
 <html>
 <head>

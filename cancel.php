@@ -1,5 +1,5 @@
 <?
-    include('.script/def.php');
+    include('script/def.php');
 
     session_start();
     $del_usr = $_SESSION['user'];

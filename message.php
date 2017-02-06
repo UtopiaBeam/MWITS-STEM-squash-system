@@ -1,5 +1,5 @@
 <?
-    include('.script/def.php');
+    include('script/def.php');
 
     $msg = $_REQUEST['msg'];
     $time = time();

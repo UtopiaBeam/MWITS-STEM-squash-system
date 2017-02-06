@@ -1,5 +1,5 @@
 <?
-    include('.script/def.php');
+    include('script/def.php');
 
     $login_user = $_REQUEST['login_user'];
     $login_pass = $_REQUEST['login_pass'];

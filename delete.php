@@ -1,5 +1,5 @@
 <?
-    include('.scrpit/def.php');
+    include('script/def.php');
 
     $msg_date = $_REQUEST['msg_date'];
 
