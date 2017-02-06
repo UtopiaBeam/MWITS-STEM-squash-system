@@ -1,5 +1,6 @@
 # MWITS STEM Squash booking system
 This is a project for MWITS STEM activity.
+**Report bugs [here](https://www.facebook.com/natchapolsrisang)**
 
 ##How to connect to database
 Edit the database's information in [**script/def.php**](script/def.php) as following:
